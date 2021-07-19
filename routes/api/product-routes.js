@@ -82,7 +82,7 @@ router.post('/', (req, res) => {
   Product.create(req.body)
     .then((product) => {
       // if there are product tags, create pairings to bulk create in the ProductTag model
-      if (req.body.tagIds.length) {
+      if (req.body.tagIds.length) { // why is this throwing an error?
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
